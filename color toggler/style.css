@@ -1,0 +1,58 @@
+:root {
+    --primary-color: white;
+    --primary-label: black;
+    --secondary-label: white;
+    --white-ball: white;
+    --black-ball: black;
+}
+
+body {
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+#switch {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+label {
+    width: 100px;
+    height: 50px;
+    border-radius: 100px;
+    transition: 0.5s;
+    display: block;
+    background: var(--primary-label);
+    cursor: pointer;
+    position: relative;
+}
+
+label::after {
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 5px;
+    left: 5px;
+    position: absolute;
+    border-radius: 20px;
+    transition: 0.3s;
+    background-color: var(--white-ball);
+}
+
+#switch:checked + label:after {
+    background-color: var(--black-ball);
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+#switch:checked + label {
+    background-color: var(--secondary-label);
+}
+
+label:active:after {  
+    width: 50px;
+}
